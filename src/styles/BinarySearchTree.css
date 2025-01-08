@@ -1,0 +1,68 @@
+/* BinarySearchTree.css */
+
+/* Контейнер для дерева */
+.tree-container {
+    width: 100%;
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 2px dashed #ddd;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .tree-container h2 {
+    font-size: 2rem;
+    color: #0056b3;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  
+  /* Стили для інпутів для додавання елементів */
+  .input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+  }
+  
+  .input-container input {
+    padding: 10px;
+    font-size: 1.1rem;
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .input-container button {
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #4ca1af, #357a81);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.1rem;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+  
+  .input-container button:hover {
+    background: linear-gradient(135deg, #357a81, #285c64);
+    transform: translateY(-2px);
+  }
+  
+  .input-container button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Виведення повідомлень про операції з деревом */
+  .tree-message {
+    margin-top: 20px;
+    color: #4ca1af;
+    font-size: 1.2rem;
+  }
+  

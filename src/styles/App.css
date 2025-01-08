@@ -1,0 +1,109 @@
+/* App.css */
+
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+}
+
+.home-page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  background-color: #4ca1af;
+  color: #fff;
+  padding: 2rem;
+  text-align: center;
+  font-size: 2rem; /* Збільшуємо розмір шрифту */
+  font-weight: bold;
+  letter-spacing: 2px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  text-transform: uppercase;
+}
+
+
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+.card {
+  background: linear-gradient(135deg, #ffffff, #f9f9f9);
+  border: none;
+  border-radius: 16px;
+  padding: 2rem;
+  text-align: center;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: scale(1.05); /* Збільшує розмір картки при наведенні */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card-content h2 {
+  font-size: 1.75rem; /* Збільшуємо розмір заголовка */
+  margin-bottom: 1rem;
+  color: #333; /* Темніший колір для тексту */
+}
+
+.card-content h2::before {
+  content: none; /* Видаляємо фоновий блок, якщо це потрібно */
+}
+
+
+.start-button {
+  background: linear-gradient(135deg, #4ca1af, #357a81);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.start-button:hover {
+  background: linear-gradient(135deg, #357a81, #285c64);
+}
+
+.start-button:active {
+  transform: scale(0.98); /* Ефект натискання */
+}
+
+
+.footer {
+  background-color: #0d6efd;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+  margin-top: auto;
+  font-size: 1rem;
+}
+
+.back-button {
+  background-color: #0d6efd;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 20px;
+  cursor: pointer;
+  margin: 12px 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.back-button:hover {
+  background-color: #0056b3;
+}
