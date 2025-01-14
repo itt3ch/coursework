@@ -1,11 +1,14 @@
-import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route, Link, useNavigate } from "react-router-dom";
+import React, { useState, createContext, useContext } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import GraphInput from "./components/GraphInput";
-import GraphVisualization from "./components/GraphVisualization";
-import Algorithms from "./components/Algorithms";
-import { BinarySearchTree } from "./components/BinarySearchTree";
 import BSTVisualizer from "./components/BSTVisualizer";
 import "./styles/App.css";
+
+// Створення контексту для дерева
+const TreeContext = createContext();
+
+export const useTree = () => useContext(TreeContext);
+
 
 function HomePage({ onStart }) {
   return (
@@ -17,10 +20,7 @@ function HomePage({ onStart }) {
         <div className="card">
           <h2>Graph Algorithm</h2>
           <Link to="/graph">
-            <button
-              className="start-button"
-              onClick={() => onStart("graph")}
-            >
+            <button className="start-button" onClick={() => onStart("graph")}>
               Start
             </button>
           </Link>
@@ -70,104 +70,36 @@ function GraphPage({ resetGraph }) {
         <h1>Graph Algorithms Visualization</h1>
         <Link to="/">
           <button className="back-button" onClick={resetGraph}>
-            Back to Home
+            На головну
           </button>
         </Link>
       </header>
       <GraphInput onMatrixSubmit={handleMatrixSubmit} />
-      <GraphVisualization matrix={matrix} vertices={vertices} />
-      <Algorithms matrix={matrix} />
+
     </div>
   );
 }
 
-function DataStructurePage({ tree, setTree }) {
-  const [inputValue, setInputValue] = useState("");
-  const [searchValue, setSearchValue] = useState("");
-  const [removeValue, setRemoveValue] = useState("");
-  const [message, setMessage] = useState("");
-
-  const handleInsert = () => {
-    if (inputValue) {
-      tree.insert(parseInt(inputValue));
-      setMessage(`Inserted ${inputValue}`);
-      setInputValue("");
-    }
-  };
-
-  const handleSearch = () => {
-    if (searchValue) {
-      const found = tree.find(parseInt(searchValue));
-      setMessage(found ? `Found ${searchValue}` : `${searchValue} not found`);
-      setSearchValue("");
-    }
-  };
-
-  const handleRemove = () => {
-    if (removeValue) {
-      tree.delete(parseInt(removeValue));
-      setMessage(`Removed ${removeValue}`);
-      setRemoveValue("");
-    }
-  };
-
-  const handleResetTree = () => {
-    setTree(new BinarySearchTree()); // Створення нового екземпляра дерева
-    setMessage("Tree has been reset.");
-  };
-
+const DataStructurePage = () => {
   return (
-    <div>
-      <header>
-        <h1>Data Structure Visualization (BST)</h1>
+    <div className="App">
+      <header className="App-header">
+        <h1>Binary Search Tree Visualizer</h1>
         <Link to="/">
-          <button className="back-button">Back to Home</button>
+          <button className="back-button" >
+            На головну
+          </button>
         </Link>
       </header>
-      <div>
-        <label>Insert Value: </label>
-        <input
-          type="number"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-        />
-        <button onClick={handleInsert}>Insert</button>
-      </div>
-
-      <div>
-        <label>Search Value: </label>
-        <input
-          type="number"
-          value={searchValue}
-          onChange={(e) => setSearchValue(e.target.value)}
-        />
-        <button onClick={handleSearch}>Search</button>
-      </div>
-
-      <div>
-        <label>Remove Value: </label>
-        <input
-          type="number"
-          value={removeValue}
-          onChange={(e) => setRemoveValue(e.target.value)}
-        />
-        <button onClick={handleRemove}>Remove</button>
-      </div>
-
-      <div>
-        <button onClick={handleResetTree}>Reset Tree</button>
-      </div>
-
-      <p>{message}</p>
-      <BSTVisualizer tree={tree.getTree()} /> {/* Передаємо дерево для візуалізації */}
+      <main>
+        <BSTVisualizer />
+      </main>
     </div>
   );
-}
+};
 
 function App() {
-  const navigate = useNavigate();
   const [mode, setMode] = useState("");
-  const [tree, setTree] = useState(new BinarySearchTree());
 
   const handleStart = (selectedMode) => {
     setMode(selectedMode);
@@ -181,10 +113,7 @@ function App() {
     <Routes>
       <Route path="/" element={<HomePage onStart={handleStart} />} />
       <Route path="/graph" element={<GraphPage resetGraph={resetGraph} />} />
-      <Route
-        path="/data-structure"
-        element={<DataStructurePage tree={tree} setTree={setTree} />}
-      />
+      <Route path="/data-structure" element={<DataStructurePage />} />
     </Routes>
   );
 }
@@ -192,7 +121,7 @@ function App() {
 export default function AppWrapper() {
   return (
     <Router>
-      <App />
+        <App />
     </Router>
   );
 }

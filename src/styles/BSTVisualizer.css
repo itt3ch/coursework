@@ -1,53 +1,10 @@
-/* BSTVisualizer.css */
-
-/* Основний контейнер для візуалізації дерева */
-.visualization-container {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    border: 2px solid #ddd;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  /* Стили для блоків/елементів візуалізації дерева */
-  .tree-node {
-    display: inline-block;
-    padding: 10px;
-    background-color: #4ca1af;
-    color: white;
-    border-radius: 50%;
-    font-size: 1.2rem;
-    margin: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease;
-  }
-  
-  .tree-node:hover {
-    transform: scale(1.1);
-    cursor: pointer;
-  }
-  
-  /* Зв'язки між вузлами дерева */
-  .tree-link {
-    display: inline-block;
-    width: 50px;
-    height: 2px;
-    background-color: #4ca1af;
-    margin: 0 10px;
-    vertical-align: middle;
-  }
-  
-  /* Спільні стилі для всіх елементів візуалізації */
-  .tree-visualization {
-    position: relative;
-    width: 100%;
-    height: 400px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-  }
-  
+input[type="text"] {
+  padding: 10px;
+  font-size: 18px;
+  border: 2px solid #00796b;
+  border-radius: 10px;
+  outline: none;
+  width: 200px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
